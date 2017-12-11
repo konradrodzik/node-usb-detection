@@ -375,7 +375,7 @@ void ExtractDeviceInfo(HDEVINFO hDevInfo, SP_DEVINFO_DATA* pspDevInfoData, TCHAR
 		resultItem->manufacturer = buf;
 	}
 
-	resultItem->serialNumber = "test";
+	resultItem->serialNumber = std::string(buff, buffSize);
 
 	if (DllSetupDiGetDeviceRegistryProperty(hDevInfo, pspDevInfoData, SPDRP_HARDWAREID, &DataT, (PBYTE)buf, buffSize, &nSize)) {
 		// Use this to extract VID / PID
